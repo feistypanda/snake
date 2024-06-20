@@ -716,29 +716,29 @@ Snake.prototype.handleBody = function(){
     } else{
         if(bod.length > 1) {
             if(bod[0][0] > bod[1][0]){
-                bod[0][0] -= this.speed;
+                this.body[0][0] -= this.speed;
             } else if(bod[0][0] < bod[1][0]){
-                bod[0][0] += this.speed;
+                this.body[0][0] += this.speed;
             } else if(bod[0][1] > bod[1][1]){
-                bod[0][1] -= this.speed;
+                this.body[0][1] -= this.speed;
             } else if(bod[0][1] < bod[1][1]){
-                bod[0][1] += this.speed;
+                this.body[0][1] += this.speed;
             } 
             if(bod[0][0] - bod[1][0] === 0 && bod[0][1] - bod[1][1] === 0){
-                bod.splice(0, 1);
+                this.body.splice(0, 1);
             }
         } else {
             if(bod[0][0] > x){
-                bod[0][0] -= this.speed;
+                this.body[0][0] -= this.speed;
             } else if(bod[0][0] < x){
-                bod[0][0] += this.speed;
+                this.body[0][0] += this.speed;
             } else if(bod[0][1] < y){
-                bod[0][1] += this.speed;
+                this.body[0][1] += this.speed;
             } else if(bod[0][1] > y){
-                bod[0][1] -= this.speed;
+                this.body[0][1] -= this.speed;
             }
         }
-        this.body = bod;
+        
     }
 };
 
@@ -1444,25 +1444,25 @@ var settings = function(){
 {
     
 keyPressed = function(){
-    if(player.que.length <= 3){
+    if(true){
         switch(keyCode){
             case UP:
-                if(player.que[0] !== "up" && player.que[0] !== "down"){
+                if(player.que[player.que.length - 1] !== "up" && player.que[player.que.length - 1] !== "down"){
                     player.que.push("up");
                 }
                 break;
             case LEFT:
-                if(player.que[0] !== "left" && player.que[0] !== "right"){
+                if(player.que[player.que.length - 1] !== "left" && player.que[player.que.length - 1] !== "right"){
                     player.que.push("left");                        
                 }
                 break;
             case RIGHT:
-                if(player.que[0] !== "left" && player.que[0] !== "right"){
+                if(player.que[player.que.length - 1] !== "left" && player.que[player.que.length - 1] !== "right"){
                     player.que.push("right");
                 }
                 break;
             case DOWN:
-                if(player.que[0] !== "up" && player.que[0] !== "down"){
+                if(player.que[player.que.length - 1] !== "up" && player.que[player.que.length - 1] !== "down"){
                    player.que.push("down"); 
                 }
                 break;
